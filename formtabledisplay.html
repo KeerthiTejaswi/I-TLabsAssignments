@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Demo </title>
+        <style>
+            .student-form {
+                height:800px;
+                width:600px;
+                background-color: bisque;
+            }
+            body {
+                justify-content: center;
+                display: flex;
+                
+            }
+            .submit-btn {
+                background-color: brown;
+                height:65px;
+                width:70px;
+                color:white;
+                border-radius: 5px;
+            }
+            table,th,td {
+                border:2px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+            <div class="student-form">
+            <h2 style="text-align:center" color="green"> Form </h2>
+            <div style="padding: 10px;margin: 5px">
+                <form onsubmit="saveStudent()">
+                       <label> First Name: </label>
+                       <input type="text" name="fname" value="" id="fname"> 
+                     <br>
+                     <br>
+                       <label> Last Name:</label>
+                       <input type="text" name="lname" value="" id="lname">
+                     <br>
+                     <br>
+                       <label> Mobile Number: </label>
+                       <input type="text" name="mnum" value="" id="mnum">   
+                     <br>
+                     <br>
+                       <label> Age: </label>
+                       <input type="text" name="age" value="" id="age">    
+                     <br>
+                     <br>
+                       <label> Email: </label>
+                       <input type="text" name="email" value="" id="email">  
+                     <br>
+                     <br>
+                       <input type="submit" value="submit" class="submit-btn">
+                     <br>
+                     <br>
+                </form>
+                    <table>
+                       <tr>
+                         <th> First Name </th>
+                         <th> Last Name </th>
+                         <th> Mobile Number </th>
+                         <th> Age </th>
+                         <th> Email </th>
+                       </tr>
+                     <tbody id="data">
+                     </tbody>
+                    </table>
+            </div>
+            </div>
+            <script>
+                function saveStudent() {
+                    event.preventDefault();
+                    var fname=document.getElementById("fname").value    
+                    var lname=document.getElementById("lname").value 
+                    var mnum=document.getElementById("mnum").value 
+                    var age=document.getElementById("age").value 
+                    var email=document.getElementById("email").value 
+                    var tbody=document.getElementById("data")
+                    reset();
+
+                    var tableData = `<tr>
+                    <td>${fname}</td>
+                    <td>${lname}</td>
+                    <td>${mnum}</td>
+                    <td>${age}</td>
+                    <td>${email}</td>
+                    </tr>`
+                    tbody.innerHTML= tbody.innerHTML+tableData
+                }
+
+            function reset(){
+                document.getElementById("fname").value = ""
+                document.getElementById("lname").value=""
+                document.getElementById("mnum").value=""
+                document.getElementById("age").value=""
+                document.getElementById("email").value=""
+            }         
+                 
+            </script>
+    </body>
+</html>
